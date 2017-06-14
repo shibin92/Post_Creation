@@ -1,0 +1,48 @@
+<div class="overlay" {{action "close"}}> 
+</div>
+<div class="modalCenter">
+    <div class="container-fluid postModal">
+        <center><h3><b>Create Post</b></h3></center>
+        <div class="row">
+            <div class="col-xs-4">
+                <p>
+                    <label><b>Name </b>:</label>
+                </p>
+            </div>
+            <div class="col-xs-8">
+                {{input class="form-control" type="text" value=name}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <p>
+                    <label><b>Rating </b>:</label>
+                </p>
+            </div>
+            <div class="col-xs-8">
+                <select class="form-control" onchange={{action "selectRating" value="target.value"}}>
+                    <option>Please rate the post</option>
+                    {{#each ratings as |ratingChoice|}}
+                        <option value={{ratingChoice}} selected={{eq rating ratingChoice}}>{{ratingChoice}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <p>
+                    <label><b>Comments </b>:</label>
+                </p>
+            </div>
+            <div class="col-xs-8">
+                {{textarea  class="form-control" value=comments rows="5"}}
+            </div>
+        </div>
+        <div class="row" style="padding: 10px; text-align: center;">
+            <button class="btn btn-success" {{action "save"}}> Save Post </button>
+            <button class="btn btn-danger " {{action "close"}}> Cancel </button>
+        </div>
+    </div>
+</div>
+{{yield}}
+

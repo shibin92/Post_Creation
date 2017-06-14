@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <div class="row" style="background-color: #FFBC7A">
+        <center> <h3>Post Creation</h3> </center>
+    </div>
+    <div class="row" style="padding: 10px;">
+    <button class="btn btn-primary pull-right" {{action 'openModal' 'post-create-modal'}}>Add Post</button>
+    </div>
+    {{#each model as |post|}}
+        {{post-comp post=post editPostAct='openModal'}}<br>
+    {{/each}}
+</div>
+{{outlet}}
+{{outlet 'modal'}}

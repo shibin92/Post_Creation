@@ -1,0 +1,15 @@
+<div class="row postBackground">
+    <div class="col-xs-10">
+        <p><b>Name:{{post.name}}</b></p>
+        <p><b>Rating:{{post.rating}}</b></p>
+        <p>Comments:</p>
+        <p>{{post.comments}}</p>
+    </div>
+    {{#if showButtons}}
+        <div class="pull-right buttonCenter">
+            <button {{action 'editPost'}}>{{fa-icon "pencil" size="lg"}}</button>
+            <button {{action 'deletePost'}}>{{fa-icon "trash" size="lg"}}</button>
+        </div>
+    {{/if}}
+</div>
+{{yield}}
