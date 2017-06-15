@@ -1,0 +1,26 @@
+{
+  "posts": [
+    {
+      "name": "fsdsf",
+      "rating": "2-star",
+      "comments": "sdfsd",
+      "id": 1
+    },
+    {
+      "name": "asdasd",
+      "rating": "3-star",
+      "comments": "asda",
+      "id": 6
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    store: Ember.inject.service('servlet'),
+    modalObj: {},
     actions: {
         close: function() {            
             this.sendAction('closePopup');
@@ -9,24 +11,38 @@ export default Ember.Component.extend({
             this.set('rating', rating);
         },
         save: function () {
-            let obj = {name: this.get('name'),
-                rating: this.get('rating'),
-                comments: this.get('comments')
+            let obj = {};
+            let store       = this.get('store');
+            obj.name        = this.get('name');
+            obj.rating      = this.get('rating');
+            obj.comments    = this.get('comments');
+            if (this.get('isEdit')) {
+                obj.id = this.get('modalObj').postObject.id;
+                store.updatePost(obj.id, obj).then((response) => {                    
+                    this.sendAction('sendPost', response, this.get('isEdit'));
+                    this.sendAction('closePopup');
+                });
+            } else {
+                store.addPost(obj).then((response) => {                    
+                    this.sendAction('sendPost', response, this.get('isEdit'));
+                    this.sendAction('closePopup');
+                });
             }
-            this.sendAction('sendPost', obj, this.get('isEdit'));
-            this.sendAction('closePopup');
         }
     },
     rating: null,
     isEdit: false,
     ratings: ['1-star', '2-star', '3-star', '4-star', '5-star'],
-    didReceiveAttrs () {
+    didRender () {
         this._super(...arguments);
-        var modalObj = Ember.get(this, 'modelObj').postObj;
-        if (modalObj.postObject) {
-            this.set('rating', modalObj.postObject.rating);
-            this.set('name', modalObj.postObject.name);
-            this.set('comments', modalObj.postObject.comments);
+        this.setProperties({
+            modalObj: Ember.get(this, 'modelObj').postObj
+        })
+        var obj = this.get('modalObj');
+        if (obj.postObject) {
+            this.set('rating', obj.postObject.rating);
+            this.set('name', obj.postObject.name);
+            this.set('comments', obj.postObject.comments);
             this.toggleProperty('isEdit');
         } 
     }

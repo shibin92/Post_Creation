@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    store: Ember.inject.service('servlet'),
     showButtons:false,
     mouseEnter: function () {
         this.toggleProperty('showButtons');
@@ -15,7 +16,10 @@ export default Ember.Component.extend({
             this.sendAction('sendAct', Ember.get(this, 'post'));
         },
         deletePost: function (){
-            this.sendAction('delAct', Ember.get(this, 'post'));
+            let store = this.get('store');
+            store.deletePost(Ember.get(this, 'post').id).then((response) => {                
+                this.sendAction('delAct', Ember.get(this, 'post'));
+            });
         }
     }
 });
