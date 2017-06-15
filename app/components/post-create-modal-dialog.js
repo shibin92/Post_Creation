@@ -33,7 +33,7 @@ export default Ember.Component.extend({
     rating: null,
     isEdit: false,
     ratings: ['1-star', '2-star', '3-star', '4-star', '5-star'],
-    didRender () {
+    init () {
         this._super(...arguments);
         this.setProperties({
             modalObj: Ember.get(this, 'modelObj').postObj

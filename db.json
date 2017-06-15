@@ -1,25 +1,25 @@
 {
   "posts": [
     {
-      "name": "fsdsf",
-      "rating": "2-star",
-      "comments": "sdfsd",
+      "name": "dfsffdsfsdf",
+      "rating": "5-star",
+      "comments": "sdfsdf",
       "id": 1
     },
     {
-      "name": "asdasd",
-      "rating": "3-star",
-      "comments": "asda",
-      "id": 6
-    }
-  ],
-  "comments": [
+      "name": "sdfs",
+      "rating": "4-star",
+      "comments": "sdfs",
+      "id": 2
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "sdfs",
+      "rating": "3-star",
+      "comments": "sdfs",
+      "id": 3
     }
   ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }
