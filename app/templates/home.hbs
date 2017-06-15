@@ -5,8 +5,8 @@
     <div class="row" style="padding: 10px;">
     <button class="btn btn-primary pull-right" {{action 'openModal' 'post-create-modal'}}>Add Post</button>
     </div>
-    {{#each model as |post|}}
-        {{post-comp post=post editPostAct='openModal'}}<br>
+    {{#each model.postsArray as |post|}}
+        {{post-comp post=post editAct="openModal" sendAct="receiveEditObj" delAct="deletePost"}}<br>
     {{/each}}
 </div>
 {{outlet}}
