@@ -1,21 +1,21 @@
 {
   "posts": [
     {
-      "name": "dfsffdsfsdf",
-      "rating": "5-star",
-      "comments": "sdfsdf",
+      "name": "dsfs",
+      "rating": "3-star",
+      "comments": "sdfsd",
       "id": 1
     },
     {
-      "name": "sdfs",
-      "rating": "4-star",
+      "name": "sdf",
+      "rating": "3-star",
       "comments": "sdfs",
       "id": 2
     },
     {
-      "name": "sdfs",
-      "rating": "3-star",
-      "comments": "sdfs",
+      "name": "sdfsf",
+      "rating": "4-star",
+      "comments": "sdfsd",
       "id": 3
     }
   ],

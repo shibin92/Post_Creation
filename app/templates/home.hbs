@@ -1,13 +1,15 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: lightyellow;">
     <div class="row" style="background-color: #FFBC7A">
-        <center> <h3>Post Creation</h3> </center>
+        <center> <h3> <b>Post Creation</b></h3> </center>
     </div>
     <div class="row" style="padding: 10px;">
-        <button class="btn btn-primary pull-right" {{action 'openModal' 'post-create-modal'}}>Add Post</button>
+        <button class="btn btn-primary pull-right" {{action 'openModal' 'post-create-modal'}}>Add Post {{fa-icon "plus" size="lg"}}</button>
     </div>
-    {{#each model.postsArray as |post|}}
-        {{post-comp post=post editAct="openModal" sendAct="receiveEditObj" delAct="deletePost"}}<br>
-    {{/each}}
+    <div class="row containerScroll">
+        {{#each model.postsArray as |post|}}
+            {{post-comp post=post editAct="openModal" sendAct="receiveEditObj" delAct="deletePost"}}<br>
+        {{/each}}
+    </div>
 </div>
 {{outlet}}
 {{outlet 'modal'}}
